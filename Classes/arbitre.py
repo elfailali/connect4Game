@@ -1,6 +1,7 @@
 from Classes.player import Player
 from Classes.grid import Grid
 
+
 class Arbitre:
     winnerPlayer = ""
 
@@ -11,5 +12,5 @@ class Arbitre:
         if Grid().isValidLocation(grid, column):
             line = Grid().getNextOpenLine(grid, column)
             Grid().insertJetonToCase(grid, playerJetonColor, line, column)
-
-
+        else:
+            print("⚠️ Oooops. Please, select an available column!")

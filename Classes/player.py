@@ -1,6 +1,5 @@
 from Classes.grid import Grid
 from Classes.jeton import Jeton
-from Classes.analyser import Analyser
 
 
 class Player:

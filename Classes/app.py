@@ -1,5 +1,6 @@
 from Classes.analyser import Analyser
 from Classes.grid import Grid
+import sys
 
 
 class App:
@@ -15,10 +16,11 @@ class App:
         self.arbitre.setJetonInColumn(self.grid, player.getPlayerJetonColor(), column)
         Grid().displayGrid(self.grid)
         if Analyser().winningMove(self.grid, player):
-            self.arbitre.setWinnerPlayer(player)
+            self.arbitre.setWinnerPlayer(player.getPlayerName())
+            print(f"The winner is {player.getPlayerName()}")
             self.gameOver = True
 
-    def start_game(self):
+    def startGame(self):
         Grid().displayGrid(self.grid)
         turn = 0
         while not self.gameOver:
@@ -29,3 +31,7 @@ class App:
 
             turn += 1
             turn = turn % 2
+
+        if Analyser().drawMatch(self.grid):
+            print(f"DRAW: The match is end with no winner")
+            sys.exit(0)
